@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Add some basic styling */
+    .colorful-div {
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      text-align: center;
+      line-height: 50px;
+      border-radius: 5px;
+    }
+  </style>
+  <title>Colorful Divs</title>
+</head>
+<body>
+  <script>
+    // Array of colors
+    const colors = ["red", "blue", "green", "yellow", "purple"];
+
+    // Array of texts
+    const texts = ["One", "Two", "Three", "Four", "Five"];
+
+    // Function to create and append div elements
+    function createColorfulDivs() {
+      // Get the container element
+      const container = document.body;
+
+      // Loop through the arrays to create div elements
+      for (let i = 0; i < 5; i++) {
+        // Create a div element
+        const div = document.createElement("div");
+
+        // Set the class for styling
+        div.className = "colorful-div";
+
+        // Set the background color from the colors array
+        div.style.backgroundColor = colors[i];
+
+        // Set the text content from the texts array
+        div.textContent = texts[i];
+
+        // Append the div to the container
+        container.appendChild(div);
+      }
+    }
+
+    // Call the function to create divs when the page loads
+    window.onload = createColorfulDivs;
+  </script>
+</body>
+</html>

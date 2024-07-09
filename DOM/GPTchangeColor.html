@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Change</title>
+  <style>
+    /* Add some basic styling for the demonstration */
+    .highlight {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function changeColor() {
+    const parentArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday'];
+    const delay = 1000; // 1 second
+
+    function highlightElement(index) {
+      // Remove highlight from the previous element
+      if (index > 0) {
+        document.getElementById(`day${index - 1}`).classList.remove('highlight');
+      }
+
+      // Highlight the current element
+      document.getElementById(`day${index}`).classList.add('highlight');
+
+      // Remove highlight after 1 second
+      setTimeout(() => {
+        document.getElementById(`day${index}`).classList.remove('highlight');
+        
+        // Move to the next element or reset to the beginning
+        if (index < parentArr.length - 1) {
+          highlightElement(index + 1);
+        } else {
+          highlightElement(0);
+        }
+      }, delay);
+    }
+
+    // Start the color change process with the first element
+    highlightElement(0);
+  }
+
+  // Run the function when the page loads
+  window.onload = changeColor;
+</script>
+
+<!-- Create spans for each day with unique IDs -->
+<span id="day0">Monday</span>
+<span id="day1">Tuesday</span>
+<span id="day2">Wednesday</span>
+<span id="day3">Thursday</span>
+
+</body>
+</html>

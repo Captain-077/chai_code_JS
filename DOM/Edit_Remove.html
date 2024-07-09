@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Remove DOM</title>
+</head>
+
+<style>
+    .bg-black {
+        background-color: #212121;
+        color: #fff;
+        padding: 40px 40px;
+    }
+</style>
+
+<body class="bg-black">
+
+
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+</body>
+
+<script>
+    // function AddLang(langName) {
+
+    //     const li = document.createElement('li');
+    //     li.innerHTML = langName
+    //     document.querySelector('.language').appendChild(li)
+
+    // }
+
+    // AddLang("Php")
+    // AddLang("typescript")
+
+    //---------Optimized way-------------
+    function AddLang(langName) {
+
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    AddLang("Rust")
+    AddLang("C++")
+
+
+
+
+
+    //---------------------Edit----------------
+
+
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.appendChild(document.createTextNode("..React"));
+
+    const newLi = document.createElement('li');
+
+    newLi.textContent = "angular"
+    secondLang.replaceWith(newLi)
+
+    //---------------------Edit2----------------
+
+
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = "<li>Python</li>"
+
+     //---------------------remove----------------
+     const lastLang = document.querySelector("li:last-child")
+     lastLang.remove()
+
+
+
+
+
+
+
+
+
+
+      
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur Code</title>
+</head>
+
+<style>
+    .bg-black {
+        background-color: #212121;
+        color: #fff;
+        padding: 40px 40px;
+    }
+</style>
+
+<body class="bg-black">
+
+    <button onClick = CreateDiv('lame','NotWelcome','red')>Create</button>
+    <button onClick = CreateDiv('shame','Woohooo','Green')>Create</button>
+
+</body>
+
+<script>
+    function CreateDiv(newClass,newText,color) {
+        const div = document.createElement('div');
+        console.log(div);
+        div.className = newClass
+        div.id = Math.round(Math.random() * 10 + 1)
+
+        div.setAttribute("title", "genrated title")
+        div.style.backgroundColor = color
+        div.style.padding = "15px"
+
+        // div.innerText = "Welcome"
+        //prefered and optimized way
+        const newTExt = document.createTextNode(newText);
+        div.appendChild(newTExt)
+
+        document.body.appendChild(div)
+    }
+
+</script>
+
+</html>
